@@ -110,13 +110,19 @@ var Tabs = React.createClass({
     );
   },
   _getSelectedPanel () {
-    var index = this.state.tabActive - 1;
-    var $panel = this.props.children[index];
+    var activeIndex = this.state.tabActive - 1;
+    var $panels = this.props.children;
 
     return (
-      <article ref='tab-panel' className='tab-panel'>
-        {$panel}
-      </article>
+      <div ref='tabs-holder' className='tabs-panel'>
+        {$panels.map(function ($panel, index) {
+          return (
+            <article ref={(activeIndex == index) ? 'tab-panel' : ('tab-panel-' + index)} className={(activeIndex == index) ? 'tab-panel' : 'hidden-tab-panel tab-panel'} key={index}>
+              {$panel}
+            </article>
+          );
+        })}
+      </div>
     );
   }
 });

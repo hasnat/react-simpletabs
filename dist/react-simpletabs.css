@@ -33,3 +33,13 @@
 .tab-panel {
   padding: 10px 50px;
 }
+
+/* to hide panels */
+/*.tab-panel.hidden-tab-panel {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}*/
